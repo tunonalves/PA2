@@ -38,6 +38,7 @@ function isValidLastNumber() {
 }
 function result() {
   if (isValidLastNumber()) r.value = new Function("return " + r.value)();
+  alert (r.value)
 }
 function clear() {
   document.querySelector("#resultado").value = 0;
