@@ -1,4 +1,4 @@
-const bts = document.querySelectorAll(".botones button");
+const bts = document.querySelectorAll(".buttons button");
 const r = document.querySelector("#resultado");
 
 for (i = 0; i < bts.length; i++) {
