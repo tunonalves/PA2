@@ -5,20 +5,80 @@
 	</head>
 	<body>
 		<form class="form" id="formulario">
-			<h3>Datos</h3>
+			<legend align="right">Datos personales</legend>
 			<p>Nombre</p>
-			<input type="text" name="NAME" id="name">
+			<input type="text" name="NAME" id="name" size="20" maxlength="20">
 			<p>Apellido</p>
-			<input type="text" name="LASTNAME" id="lastname">
+			<input type="text" name="LASTNAME" id="lastname" size="20" maxlength="20">
 			<p>Edad</p>
 			<input type="number" name="AGE" id="age" min="1" max="99">
 			<p>Email</p>
-			<input type="email" name="EMAIL" id="email">
+			<input type="email" name="EMAIL" id="email" size="20" maxlength="50">
 			<p>Password</p>
-			<input type="password" name="PASS" id="pass">
+			<input type="password" name="PASS" id="pass" size="20" minlength="8">
+			</legend>
 			<br><br>
-			<button type="submit" name="boton" class="btn btn-primary">Submit</button>
+			<fieldset>
+			<button type="submit" name="submit" value="submit">Submit</button>
+			<button type="reset" name="reset" value="Reset">Reset</button>
+			</fieldset>
 		</div>
-		<script src="Ejec1.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded",function(){
+				document.getElementById("formulario").addEventListener('submit',validaFormulario);
+			});
+			function validaFormulario(evento)
+			{
+				evento.preventDefault();
+
+				var name = document.getElementById('name').value;
+				if(name.length >=10){ 
+					alert("El nombre fuera de rango");
+					return;
+				}
+
+				var lastname = document.getElementById('lastname').value;
+				if(lastname.length >= 10){
+					alert("El apellido fuera de rango");
+					return;
+				}
+
+				var email = document.getElementById('email').value;
+				if (email == true){
+					re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+					if(!re.exec(valor)){
+						alert('email no valido');
+					}
+					else alert('email valido');
+				}
+
+				var pass = document.getElementById('pass').value;
+				//validar longitud contraseña
+				if ( pass.length < 8 ) {
+					$('#length').removeClass('valid').addClass('invalid');
+				} else {
+					$('#length').removeClass('invalid').addClass('valid');
+				}
+				//validar letra
+				if ( pass.match(/[A-z]/) ) {
+					$('#letter').removeClass('invalid').addClass('valid');
+				} else {
+					$('#letter').removeClass('valid').addClass('invalid');
+				}
+				//validar letra mayúscula
+				if ( pass.match(/[A-Z]/) ) {
+					$('#capital').removeClass('invalid').addClass('valid');
+				} else {
+					$('#capital').removeClass('valid').addClass('invalid');
+				}
+				//validar numero
+				if ( pass.match(/\d/) ) {
+					$('#number').removeClass('invalid').addClass('valid');
+				} else {
+					$('#number').removeClass('valid').addClass('invalid');
+				}
+				this.submit();
+			}
+		</script>
 	</body>
 </html>

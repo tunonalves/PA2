@@ -6,13 +6,13 @@ function validaFormulario(evento){
 	evento.preventDefault();
 
 	var name = document.getElementById('name').value;
-	if(name.length >=20){ 
+	if(name.length >=10){ 
 		alert("El nombre fuera de rango");
 		return;
 	}
 
 	var lastname = document.getElementById('lastname').value;
-	if(lastname.length >= 20){
+	if(lastname.length >= 10){
 		alert("El apellido fuera de rango");
 		return;
 	}
