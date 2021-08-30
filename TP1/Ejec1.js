@@ -56,7 +56,6 @@ function validaFormulario(evento){
 
 
 
-
 /*names = document.getElementById("name");
 lastnames = document.getElementById("lastname");
 ages = document.getElementById("age");

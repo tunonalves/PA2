@@ -19,7 +19,7 @@
 			</legend>
 			<br><br>
 			<fieldset>
-			<button type="submit" name="submit" value="submit">Submit</button>
+			<button type="submit" name="submit" value="submit" onclick= validaFormulario(formulario.value)>Submit</button>
 			<button type="reset" name="reset" value="Reset">Reset</button>
 			</fieldset>
 		</div>
@@ -46,7 +46,7 @@
 				var email = document.getElementById('email').value;
 				if (email == true){
 					re=/^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-					if(!re.exec(valor)){
+					if(!re.exec(email)){
 						alert('email no valido');
 					}
 					else alert('email valido');
