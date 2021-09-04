@@ -55,27 +55,30 @@
 				var pass = document.getElementById('pass').value;
 				//validar longitud contraseña
 				if ( pass.length < 8 ) {
-					$('#length').removeClass('valid').addClass('invalid');
+					//$('#length').removeClass('valid').addClass('invalid');
+					alert("Codigo incorrecto")
 				} else {
-					$('#length').removeClass('invalid').addClass('valid');
+					//$('#length').removeClass('invalid').addClass('valid');
+
 				}
 				//validar letra
 				if ( pass.match(/[A-z]/) ) {
-					$('#letter').removeClass('invalid').addClass('valid');
+					//$('#letter').removeClass('invalid').addClass('valid');
+					alert("Codigo incorrecto")
 				} else {
-					$('#letter').removeClass('valid').addClass('invalid');
+					//$('#letter').removeClass('valid').addClass('invalid');
 				}
 				//validar letra mayúscula
 				if ( pass.match(/[A-Z]/) ) {
-					$('#capital').removeClass('invalid').addClass('valid');
+					//$('#capital').removeClass('invalid').addClass('valid');
 				} else {
-					$('#capital').removeClass('valid').addClass('invalid');
+					//$('#capital').removeClass('valid').addClass('invalid');
 				}
 				//validar numero
 				if ( pass.match(/\d/) ) {
-					$('#number').removeClass('invalid').addClass('valid');
+					//$('#number').removeClass('invalid').addClass('valid');
 				} else {
-					$('#number').removeClass('valid').addClass('invalid');
+					//$('#number').removeClass('valid').addClass('invalid');
 				}
 				this.submit();
 			}
