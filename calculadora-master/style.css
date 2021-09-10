@@ -1,0 +1,101 @@
+body {
+  background: url("https://previews.123rf.com/images/pdreams/pdreams1210/pdreams121000004/15953097-mathematic-school-design-background-illustration.jpg")
+    no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  font-family: sans-serif;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+.form {
+  align-self: center;
+  padding: 2em;
+  background: rgba(40, 84, 121, 0.89);
+}
+
+.form button {
+  padding: 20px;
+  background: #eee;
+  color: #000;
+  border: none;
+}
+
+#resultado {
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 24px;
+  background: #000;
+  border: none;
+  color: #eee;
+  text-align: right;
+}
+
+.botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "b7 b8 b9 bs"
+    "b4 b5 b6 br"
+    "b1 b2 b3 bm"
+    "bac b0 bD bd"
+    "bi bi bi bi";
+  grid-gap: 5px;
+}
+
+#numD {
+  grid-area: bD;
+}
+#num0 {
+  grid-area: b0;
+}
+#num1 {
+  grid-area: b1;
+}
+#num2 {
+  grid-area: b2;
+}
+#num3 {
+  grid-area: b3;
+}
+#num4 {
+  grid-area: b4;
+}
+#num5 {
+  grid-area: b5;
+}
+#num6 {
+  grid-area: b6;
+}
+#num7 {
+  grid-area: b7;
+}
+#num8 {
+  grid-area: b8;
+}
+#num9 {
+  grid-area: b9;
+}
+#sumar {
+  grid-area: bs;
+}
+#restar {
+  grid-area: br;
+}
+#dividir {
+  grid-area: bd;
+}
+#multiplicar {
+  grid-area: bm;
+}
+#ac {
+  grid-area: bac;
+  background: rgb(223, 92, 31);
+  color: #eee;
+}
+#igual {
+  grid-area: bi;
+  background: rgba(61, 233, 45, 0.89);
+  color: #eee;
+}

@@ -1,0 +1,28 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TP2 - Ejercicio 4</title>
+</head>
+
+<body>
+    <input type="button" onclick="highlight()" value="Highlight words">
+    <br><br>
+    <p>
+        Lorem <span class="myClass">ipsum</span> dolor sit <span class="myClass">amet</span>, consectetur adipiscing
+        elit, sed do eiusmod tempor <span class="myClass">incididunt</span>
+        ut labore et dolore <span class="myClass">magna</span> aliqua.
+    </p>
+    <script>
+        const words = document.getElementsByClassName("myClass")
+
+        function highlight() {
+            Array.from(words).forEach(element => {
+                element.style.color = "red"
+                element.style.fontSize = "20px"
+            });
+        }
+    </script>
+</body>
+
+</html>

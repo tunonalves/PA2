@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+    <title>TP 2 - Ejercicio 3</title>
+</head>
+
+<body>
+    <input type="button" onclick="insertRow()" value="Insert row">
+    <input type="button" onclick="deleteRow()" value="Delete row">
+    <br><br>
+    <table style="width:100%" class="myTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+    </table>
+    <script>
+        const table = document.getElementsByClassName("myTable")[0]
+
+        function insertRow() {
+            const row = table.insertRow(-1)
+            const cell1 = row.insertCell(-1)
+            const cell2 = row.insertCell(-1)
+            cell1.innerHTML = "Value"
+            cell2.innerHTML = "Value"
+        }
+
+        function deleteRow() {
+            if (table.rows.length > 1)
+                table.deleteRow(-1)
+        }
+    </script>
+</body>
+
+</html>
