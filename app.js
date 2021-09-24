@@ -1,17 +1,17 @@
 const url = "https://utn-lubnan-api-3.herokuapp.com/api/";
 //----------------------------------------------------------------------------------------------------------------------------------------
-const tbody = document.querySelector("#data");
+const table_body = document.querySelector("#app");
 //----------------------------------------------------------------------------------------------------------------------------------------
 var studentsArray = new Array();
-var careerArray = new Array();
+//var careerArray = new Array();
 //----------------------------------------------------------------------------------------------------------------------------------------
-class Career {
+/*class Career {
     constructor(careerId,name,active){
         this.careerId = careerId;
         this.name = name;
         this.active = active;
     }
-}
+}*/
 class Student {
     constructor(studentId, careerId, firstName, lastName, email) {
         this.studentId = studentId;
@@ -94,9 +94,10 @@ async function generateStudentsArray() {
             }
         }
     });
+}
 //----------------------------------------------------------------------------------------------------------------------------------------
 async function renderTable(){
-    tbody.innerHTML = "";
+    table_body.innerHTML = "";
     studentsArray = await generateStudentsArray();
     let i = 0;
     while(i < studentsArray.length){        
