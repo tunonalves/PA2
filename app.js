@@ -1,6 +1,6 @@
 const url = "https://utn-lubnan-api-3.herokuapp.com/api/";
 //----------------------------------------------------------------------------------------------------------------------------------------
-const table_body = document.querySelector("#app");
+const tbody = document.querySelector("#data");
 //----------------------------------------------------------------------------------------------------------------------------------------
 var studentsArray = new Array();
 //var careerArray = new Array();
@@ -97,7 +97,7 @@ async function generateStudentsArray() {
 }
 //----------------------------------------------------------------------------------------------------------------------------------------
 async function renderTable(){
-    table_body.innerHTML = "";
+    tbody.innerHTML = "";
     studentsArray = await generateStudentsArray();
     let i = 0;
     while(i < studentsArray.length){        
