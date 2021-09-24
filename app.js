@@ -78,23 +78,18 @@ async function deleteStudentByStudentId(studentId) {
 async function generateStudentsArray() {
     let careers = await getCareers();
     let students = await getStudents();
-    
     studentsArray = [];
-
     students.forEach(student => {
         let i = 0;
-
         if(student.careerId != null){
             while(i < careers.length){
                 let career = careers[i];
-    
                 if((career.careerId == student.careerId) && (career.active)){
                     let newStudent = new Student(student.studentId, career.name, student.firstName, student.lastName, student.email);
     
                     studentsArray.push(newStudent);
                     break;
                 }
-
                 i++;
             }
         }
