@@ -102,29 +102,29 @@ async function renderTable(){
     while(i < studentsArray.length){        
         let student = studentsArray[i];
         let tr = document.createElement("tr");
-
+        //-----------------------------------------------------
         td = document.createElement("td");
         td.append(document.createTextNode(student.studentId));
         tr.append(td);
-
+        //-----------------------------------------------------
         td = document.createElement("td");
         td.append(document.createTextNode(student.careerId));
         tr.append(td);
-
+        //-----------------------------------------------------
         td = document.createElement("td");
         td.append(document.createTextNode(student.lastName));
         tr.append(td);
-
+        //-----------------------------------------------------
         td = document.createElement("td");
         td.append(document.createTextNode(student.firstName));
         tr.append(td);
-        
+        //-----------------------------------------------------
         td = document.createElement("td");
         let deleteButton = document.createElement("button");
         btnOnDelete(deleteButton, student.studentId);
         td.append(deleteButton);
         tr.append(td);        
-
+        //-----------------------------------------------------
         tbody.append(tr);
         i++;
     }    
