@@ -1,0 +1,52 @@
+[
+  {
+    "careerId": 1,
+    "name": "Marketing",
+    "active": true
+  },
+  {
+    "careerId": 2,
+    "name": "Product Management",
+    "active": false
+  },
+  {
+    "careerId": 3,
+    "name": "Services",
+    "active": false
+  },
+  {
+    "careerId": 4,
+    "name": "Legal",
+    "active": false
+  },
+  {
+    "careerId": 5,
+    "name": "Human Resources",
+    "active": true
+  },
+  {
+    "careerId": 6,
+    "name": "Sales",
+    "active": true
+  },
+  {
+    "careerId": 7,
+    "name": "Research and Development",
+    "active": true
+  },
+  {
+    "careerId": 8,
+    "name": "Research and Development",
+    "active": true
+  },
+  {
+    "careerId": 9,
+    "name": "Marketing",
+    "active": false
+  },
+  {
+    "careerId": 10,
+    "name": "Engineering",
+    "active": true
+  }
+]
