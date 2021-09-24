@@ -1,10 +1,10 @@
-const url_career = "https://utn-lubnan-api-3.herokuapp.com/api/Career";
-const url_student = "https://utn-lubnan-api-3.herokuapp.com/api/Student";
-
+const url = "https://utn-lubnan-api-3.herokuapp.com/api/";
+//----------------------------------------------------------------------------------------------------------------------------------------
 const tbody = document.querySelector("#data");
-
-var careerArray = new Array();
+//----------------------------------------------------------------------------------------------------------------------------------------
 var studentsArray = new Array();
+var careerArray = new Array();
+//----------------------------------------------------------------------------------------------------------------------------------------
 class Career {
     constructor(careerId,name,active){
         this.careerId = careerId;
@@ -21,11 +21,11 @@ class Student {
         this.email = email;
     }
 }
-
-function doRequest_career(method, url_career, responseType = null){
+//----------------------------------------------------------------------------------------------------------------------------------------
+function doRequest(method, url, responseType = null){
     return new Promise((resolve, reject) => {
         let request = new XMLHttpRequest();
-        request.open(method, url_career);
+        request.open(method, url);
         if(responseType != null)
             request.responseType = responseType;
         request.onload = () => {
@@ -41,60 +41,40 @@ function doRequest_career(method, url_career, responseType = null){
         request.send();
     });
 }
-function doRequest_student(method, url_student, responseType = null){
-    return new Promise((resolve, reject) => {
-        let request = new XMLHttpRequest();
-        request.open(method, url_student);
-        if(responseType != null)
-            request.responseType = responseType;
-        request.onload = () => {
-            if (request.status == 200) {
-                resolve(request.response);
-            } else {
-                reject(Error("Request error: " + request.statusText));
-            }
-        }
-        request.onerror = () => {
-            reject(Error("Oops!, there was a network error"));
-        }
-        request.send();
-    });
-}
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 async function getCareers() {
     try {
-        let apiController = "Career";
+        let api_Controller = "Career";
 
-        return await doRequest_career("GET", `${url_career}${apiController}`, "json");
+        return await doRequest("GET", `${url}${api_Controller}`, "json");
     }
     catch (error) {
         console.log(error.message);
     }
-
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 async function getStudents() {
     try {
-        let apiController = "Student";
+        let api_Controller = "Student";
 
-        return await doRequest("GET", `${url_student}${apiController}`, "json");
+        return await doRequest("GET", `${url}${api_Controller}`, "json");
     }
     catch (error) {
         console.log(error.message);
     }
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 async function deleteStudentByStudentId(studentId) {
     try {
-        let apiController = "Student";
+        let api_Controller = "Student";
 
-        await doRequest_student("DELETE", `${url_student}${apiController}/${studentId}`);
+        await doRequest("DELETE", `${url}${api_Controller}/${studentId}`);
     } 
     catch (error) {
         console.log(error.message);
     }
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 async function generateStudentsArray() {
     let careers = await getCareers();
     let students = await getStudents();
@@ -119,23 +99,13 @@ async function generateStudentsArray() {
             }
         }
     });
-
-    return studentsArray.sort(function(a, b){
-        return (b.lastName < a.lastName) ? 1 : -1;
-    });
-}
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 async function renderTable(){
     tbody.innerHTML = "";
-
     studentsArray = await generateStudentsArray();
-
     let i = 0;
-
     while(i < studentsArray.length){        
         let student = studentsArray[i];
-
-        
         let tr = document.createElement("tr");
 
         td = document.createElement("td");
@@ -143,7 +113,7 @@ async function renderTable(){
         tr.append(td);
 
         td = document.createElement("td");
-        td.append(document.createTextNode(student.career));
+        td.append(document.createTextNode(student.careerId));
         tr.append(td);
 
         td = document.createElement("td");
@@ -164,15 +134,14 @@ async function renderTable(){
         i++;
     }    
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------
     function btnOnDelete (deleteButton, studentId){
     deleteButton.append(document.createTextNode("Delete"));
     deleteButton.className = "btn btn-danger btn-sm";
     deleteButton.onclick = async function(){
         await deleteStudentByStudentId(studentId);
-        
         renderTable();
     };
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------
 window.onload = () => renderTable();
